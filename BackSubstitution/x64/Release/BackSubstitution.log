@@ -1,0 +1,141 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: 中间目录(x64\Release\)包含从另一个项目(BackSubstitution.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  bayesian.cpp
+d:\vs_final_project\seetaface\backsubstitution\bayesian.cpp(627): warning C4267: “=”: 从“size_t”转换到“unsigned int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\bayesian.cpp(878): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  Cluster.cpp
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(12): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(13): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(14): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(21): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(22): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(23): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(25): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(27): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(28): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(29): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(40): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(41): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(42): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(52): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(53): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(54): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(59): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(62): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(63): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(64): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(65): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\cluster.cpp(68): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  globalmatting.cpp
+d:\vs_final_project\seetaface\backsubstitution\globalmatting.cpp(307): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\globalmatting.cpp(308): warning C4244: “初始化”: 从“float”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\globalmatting.cpp(444): warning C4244: “参数”: 从“int”转换到“float”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\globalmatting.cpp(495): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=uchar
+          ]
+d:\vs_final_project\seetaface\backsubstitution\globalmatting.cpp(496): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=uchar
+          ]
+  guidedfilter.cpp
+  main.cpp
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(31): warning C4005: “_CRT_SECURE_NO_WARNINGS”: 宏重定义
+  d:\vs_final_project\seetaface\backsubstitution\main.cpp: note: 参见“_CRT_SECURE_NO_WARNINGS”的前一个定义
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(78): warning C4244: “初始化”: 从“int64”转换到“long”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(80): warning C4244: “初始化”: 从“int64”转换到“long”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(121): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(122): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(123): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(124): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(152): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(153): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(155): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(156): warning C4244: “=”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(198): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(199): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(200): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(205): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(209): warning C4244: “参数”: 从“double”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=int
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(521): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=uchar
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(522): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=uchar
+          ]
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(523): warning C4244: “=”: 从“float”转换到“_Tp”，可能丢失数据
+          with
+          [
+              _Tp=uchar
+          ]
+  sharedmatting.cpp
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(55): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(91): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(93): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(188): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(213): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(240): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(260): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(604): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(673): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(672): warning C4101: “a”: 未引用的局部变量
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(1035): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+d:\vs_final_project\seetaface\backsubstitution\sharedmatting.cpp(1051): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  getopt.c
+  正在生成代码
+d:\vs_final_project\seetaface\backsubstitution\main.cpp(467): warning C4715: “matting”: 不是所有的控件路径都返回值
+  All 1346 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  已完成代码的生成
+  BackSubstitution.vcxproj -> D:\vs_final_project\SeetaFace\x64\Release\Experiment.exe
