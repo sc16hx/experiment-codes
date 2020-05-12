@@ -10,4 +10,4 @@ The experiments codes were all summarized into the file : BackSubstitution/main.
 
 The /FaceDetection and /lib directory is used for seetaface's face detection.
 
-                                                                                                                  by Hailin Xiong
+                                                                                            by Hailin Xiong 
