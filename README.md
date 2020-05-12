@@ -6,4 +6,6 @@ The experiment includes experiments on face detection algorithm, 3 object segmen
 
 ---------------------------------------------------------------------------------------------------------------------------------
 
-The experiments codes were all summarized into the file : Backsubstitution/main.cpp, you can directly open this file to check the experiment codes.
+The experiments codes were all summarized into the file : BackSubstitution/main.cpp, you can directly open this file to check the experiment codes.
+
+                                        by Hailin Xiong
