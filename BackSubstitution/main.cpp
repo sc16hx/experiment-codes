@@ -283,7 +283,7 @@ void segment(string imgPath) {
 		cv::cvtColor(image, img_gray, cv::COLOR_BGR2GRAY);
 	else
 		img_gray = image;
-
+	/*
 	cv::Rect rectangle(4, 40, image.cols - 5, image.rows - 40);
 	cv::Mat result;
 	cv::Mat bgModel, fgModel;
@@ -330,7 +330,7 @@ void segment(string imgPath) {
 	string otsuPath = "../test_seeta/otsu/" + imgName;
 	cv::imwrite(otsuPath, erzhitu);
 
-
+	*/
 
 
 
@@ -393,7 +393,7 @@ void segment(string imgPath) {
 	bitwise_not(mark, mark, cv::Mat());
 	threshold(mark, mark, 40, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
 	//imshow("watershed", mark);
-	string waterPath = "../test_seeta/water/" + imgName;
+	string waterPath = "../test_seeta/watershed/" + imgName;
 	cv::imwrite(waterPath, mark);
 }
 
@@ -789,17 +789,17 @@ int main() {
 	
 	*/
 	std::vector<std::string> resize_file_names;
-	get_image_names("../test_seeta/bayes/*.jpg", resize_file_names);
-	/*
-	for (size_t i = 0; i < 220; ++i) {
+	get_image_names("../test_seeta/resized/*.jpg", resize_file_names);
+	
+	for (size_t i = 90; i < 200; ++i) {
 		//cout << resize_file_names[i] << endl;
 		string img = "../test_seeta/resized/" + resize_file_names[i];
-		//segment(img);
-		string tri = "../test_seeta/trimap/" + resize_file_names[i];
-		matting(img, tri);
+		segment(img);
+		//string tri = "../test_seeta/trimap/" + resize_file_names[i];
+		//matting(img, tri);
 		//getTrimap(img);
 	}
-	*/
+	
 	cout <<"420 images as input, "<< resize_file_names.size() << " images resized successfully." << endl;
 
 

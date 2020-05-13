@@ -81,8 +81,8 @@ d:\vs_final_project\experiment\experiment-codes\backsubstitution\main.cpp(595): 
               _Tp=uchar
           ]
   正在生成代码
-  7 of 336 functions ( 2.1%) were compiled, the rest were copied from previous compilation.
+  1 of 515 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    9 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   BackSubstitution.vcxproj -> D:\vs_final_project\experiment\experiment-codes\x64\Release\Experiment.exe
