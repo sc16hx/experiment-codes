@@ -275,7 +275,7 @@ int otsu(const cv::Mat &img)//otsu algorithm
 void segment(string imgPath) {
 	const char *imgs = imgPath.data();
 	string imgName = imgPath; 	
-	imgName.erase(imgName.begin(), imgName.begin() + 14);
+	imgName.erase(imgName.begin(), imgName.begin() + 22);
 	cv::Mat image = cv::imread(imgs, cv::IMREAD_UNCHANGED);
 	cv::Mat img_gray;
 
@@ -397,6 +397,61 @@ void segment(string imgPath) {
 	cv::imwrite(waterPath, mark);
 }
 
+void composite(string imgPath, string oriPath) {
+	const char *imgs = imgPath.data();
+	const char *oriimgs = oriPath.data();
+	cv::Mat result = cv::imread(imgs, cv::IMREAD_UNCHANGED);
+	cv::Mat image = cv::imread(oriimgs, cv::IMREAD_UNCHANGED);;
+	cv::Mat result3(image.size(), image.type());
+	cv::Mat background(image.size(), CV_8UC3, cv::Scalar(255, 255, 255));
+	//cv::Mat background(image.size(), CV_8UC3,cv::Scalar(0, 0, 255));
+	double w = 0.0;
+	int b = 0, g = 0, r = 0;
+	int b1 = 0, g1 = 0, r1 = 0;
+	int b2 = 0, g2 = 0, r2 = 0;
+	int height = image.rows;//height
+	int width = image.cols;//width
+
+
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			//int m = alpha.at<uchar>(i, j);
+			int m = result.at<uchar>(i, j);
+			if (m == 255) {
+				result3.at<cv::Vec3b>(i, j) = image.at<cv::Vec3b>(i, j);
+				//Assign the foreground in the original image to the foreground in the resulting image
+			}
+			else if (m == 0) {
+				result3.at<cv::Vec3b>(i, j) = background.at<cv::Vec3b>(i, j);
+				//let the background be the assigened color (red here)
+			}
+			else {
+				w = m / 255.0;//weight
+				//Edge foreground
+				b1 = image.at<cv::Vec3b>(i, j)[0];
+				g1 = image.at<cv::Vec3b>(i, j)[1];
+				r1 = image.at<cv::Vec3b>(i, j)[2];
+				//Edge background
+				b2 = background.at<cv::Vec3b>(i, j)[0];
+				g2 = background.at<cv::Vec3b>(i, j)[1];
+				r2 = background.at<cv::Vec3b>(i, j)[2];
+				//Edge fusion
+				b = b1 * w + b2 * (1.0 - w);
+				g = g1 * w + g2 * (1.0 - w);
+				r = r1 * w + r2 * (1.0 - w);
+				result3.at<cv::Vec3b>(i, j)[0] = b;
+				result3.at<cv::Vec3b>(i, j)[1] = g;
+				result3.at<cv::Vec3b>(i, j)[2] = r;
+			}
+		}
+	}
+	cv::imwrite(imgPath, result3);
+	//imshow("composite result", result3);
+
+
+}
+
+
 int matting(string imgPath, string trimapPath) {
 	const char *imgs = imgPath.data(); 	
 	string imgName = imgPath; 	
@@ -412,15 +467,26 @@ int matting(string imgPath, string trimapPath) {
 		img_gray = image;
 
 	cv::Mat trimap = cv::imread(trimaps, cv::IMREAD_UNCHANGED);
+	
 	// bayesian Matting
 	BayesianMatting matting(image, trimap);
 	cv::Mat bayesResult;
 	bayesResult = matting.Solve();
-	//imshow("bayes thresh", bayesResult);
-	string bayPath = "../test_seeta/bayes/" + imgName;
-	bayesResult.convertTo(bayesResult, CV_8UC3, 255);
-	cv::imwrite(bayPath, bayesResult);
+	cv::Mat bayes_result(image.size(), CV_8UC3);
+	//createAlphaMat(bayes_result);
+	cv::Mat bayesBackground(image.size(), CV_8UC3, cv::Scalar(255, 255, 255));
+	matting.Composite(bayesBackground, &bayes_result);
 
+	//imshow("bayes thresh", bayes_result);
+	//string bayPath = "../data/bayes/" + imgName;
+	//string bayPath = "../test_seeta/bayes/" + imgName;
+	bayesResult.convertTo(bayesResult, CV_8UC3, 255);
+	bayes_result.convertTo(bayes_result, CV_8UC3, 255);
+	//cv::imwrite(bayPath, bayes_result); 
+	string bayPath1 = "../test_seeta/bayes/" + imgName;
+	cv::imwrite(bayPath1, bayesResult);
+
+	
 	
 	// shared matting
 	char fileAddr[64] = { 0 };
@@ -439,7 +505,10 @@ int matting(string imgPath, string trimapPath) {
 		const char *shared = sharedPath.data();
 		sprintf(fileAddr, shared, n / 10, n % 10);
 		sm.save(fileAddr);
+		//composite(sharedPath, imgPath);
 	}
+
+	
 	
 
 	// global Matting
@@ -458,7 +527,10 @@ int matting(string imgPath, string trimapPath) {
 		}
 	//imshow("global alpha", alpha);
 	string gloPath = "../test_seeta/global/" + imgName; 	
+	//string gloPath = "../data/global/" + imgName;
 	cv::imwrite(gloPath, alpha);
+	//composite(gloPath, imgPath);
+	//cv::imwrite(gloPath, alpha);
 	//cv::imwrite("../matting_data/global/7.jpg", alpha); //store the resized img
 	//image.copyTo(foreground2, alpha);
 	//cv::Mat result3(image.size(), CV_8UC3);
@@ -689,13 +761,14 @@ void compareSeg(string gtPath, string imgPath) {
 int main() {
 	cv::String pattern = "../test_seeta/*.jpg";
 	string detectPath = "../FaceDetection/model/seeta_fd_frontal_v1.0.bin";
+	
 	//vector<cv::Mat> images = read_images_in_folder(pattern);
-	/*
+	
 	std::vector<std::string> file_names;
 	get_image_names("../test_seeta/*.jpg", file_names);
 	cout << file_names.size() << endl;
 	int num = 0;
-	
+	/*
 	for (size_t i = 0; i < 5; ++i) {
 		cout << file_names[i] << endl;
 		string img = "../test_seeta/" + file_names[i];
@@ -704,27 +777,32 @@ int main() {
 	}
 	
 	cout << "find " << num << " faces in " << file_names.size() << " images." << endl;
-	
-	for (size_t i = 0; i < 60; ++i) {
+	*/
+	/*
+	for (size_t i = 399; i < 420; ++i) {
 		cout << file_names[i] << endl;
 		string img = "../test_seeta/" + file_names[i];
-		//resizeFace(img, detectPath);
-		segment(img);
+		resizeFace(img, detectPath);
+		//segment(img);
 		//num += face;
 	}
+	
 	*/
 	std::vector<std::string> resize_file_names;
-	get_image_names("../test_seeta/resized/*.jpg", resize_file_names);
-	for (size_t i = 0; i < 50; ++i) {
+	get_image_names("../test_seeta/bayes/*.jpg", resize_file_names);
+	/*
+	for (size_t i = 0; i < 220; ++i) {
 		//cout << resize_file_names[i] << endl;
 		string img = "../test_seeta/resized/" + resize_file_names[i];
+		//segment(img);
 		string tri = "../test_seeta/trimap/" + resize_file_names[i];
 		matting(img, tri);
 		//getTrimap(img);
 	}
-	//cout <<"100 images as input, "<< resize_file_names.size() << " images resized successfully." << endl;
-	
-	/*
+	*/
+	cout <<"420 images as input, "<< resize_file_names.size() << " images resized successfully." << endl;
+
+
 	std::vector<std::string> png_file_names; 	
 	get_image_names("../test_seeta/groundTruth/*.jpg", png_file_names); 	
 	
@@ -732,11 +810,11 @@ int main() {
 		//cout << png_file_names[i] << endl;
 		string p = "../test_seeta/groundTruth/" + png_file_names[i];
 		//genGT(p);
-		string otsuP = "../test_seeta/otsu/" + png_file_names[i];
-		compareSeg(p, otsuP);
+		//string otsuP = "../test_seeta/otsu/" + png_file_names[i];
+		//compareSeg(p, otsuP);
 	}
 	cout << png_file_names.size() << endl;
-	*/
+	
 	cv::namedWindow("Test", cv::WINDOW_AUTOSIZE);
 	cv::waitKey(0);
 	cv::destroyAllWindows();
